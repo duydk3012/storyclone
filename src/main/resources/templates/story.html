@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html xmlns:th="http://www.thymeleaf.org" lang="vi">
+<html lang="vi" xmlns:th="http://www.thymeleaf.org">
 
 <head>
     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
@@ -18,14 +18,6 @@
 
     <link rel="shortcut icon" th:href="@{/images/icon.png}" type="image/x-icon">
     <link rel="stylesheet" th:href="@{/app.css}">
-
-    <script>
-        window.Clone = {
-            baseUrl: 'https://suustore.com',
-            urlCurrent: 'https://suustore.com',
-            csrfToken: '4EebYu2rWivdRk1ET12dyuY0CJjpRERhJynPtvUy'
-        }
-    </script>
 
     <title th:text="'Story Clone - ' + ${story.title}"></title>
     <meta name="description"
@@ -319,7 +311,7 @@
                             <div class="col-12 col-sm-6 col-lg-6 story-detail__list-chapter--list__item">
                                 <ul>
                                     <li th:each="chapter, iter : ${chapters}" th:if="${iter.even}">
-                                        <a th:href="@{/stories/{storyId}/chapters/chapter-{chapterNumber}(storyId = ${chapter.id}, chapterNumber = ${chapter.chapterNumber})}"
+                                        <a th:href="@{/stories/{storyId}/chapters/chapter-{chapterNumber}(storyId = ${story.id}, chapterNumber = ${chapter.chapterNumber})}"
                                            class="text-decoration-none text-dark hover-title"
                                            th:text="'Chương ' + ${chapter.chapterNumber} + ': ' + ${chapter.title.trim()}"></a>
                                     </li>

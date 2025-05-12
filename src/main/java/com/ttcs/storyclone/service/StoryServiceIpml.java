@@ -1,8 +1,8 @@
 package com.ttcs.storyclone.service;
 
 import com.ttcs.storyclone.repository.StoryRepository;
-import com.ttcs.storyclone.entity.Story;
-import com.ttcs.storyclone.entity.StoryStatus;
+import com.ttcs.storyclone.model.Story;
+import com.ttcs.storyclone.model.StoryStatus;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -61,5 +61,15 @@ public class StoryServiceIpml implements StoryService {
     @Override
     public void delete(Story story) {
         storyRepository.delete(story);
+    }
+
+    @Override
+    public void deleteById(Long id) {
+        Story story = findById(id);
+        storyRepository.delete(story);
+    }
+    @Override
+    public long getTotalStories() {
+        return storyRepository.count();
     }
 }

@@ -137,45 +137,6 @@ $(document).ready(function () {
     const selectStoriesHot = $(".select-stories-hot")
     const wrapperSkeletonStoriesHot = $(".wrapper-skeleton")
     if (selectStoriesHot) {
-        function handleChangeListHot(category_id) {
-            fetch(route('get.list.story.hot'), {
-                method: 'POST',
-                headers: {
-                    'Accept': 'application/json',
-                    'Content-Type': 'application/json',
-                    'X-CSRF-TOKEN': window.Clone.csrfToken,
-                },
-                body: JSON.stringify({
-                    category_id: category_id
-                })
-            })
-                .then(res => res.json())
-                .then(data => {
-                    if (data.success) {
-                        var html = $(data.html);
-                        var list = $('.section-stories-hot__list:not(.wrapper-skeleton)', html);
-                        $('.section-stories-hot__list:not(.wrapper-skeleton)').replaceWith(list);
-                        wrapperSkeletonStoriesHot.addClass('d-none')
-                    }
-                })
-                .catch(function (error) {
-                    console.log(error);
-                    if (error.status !== 500) {
-                        let errorMessages = error.responseJSON.errors;
-                    } else {
-                        errorContent = error.responseJSON.message;
-                    }
-                })
-        }
-
-        selectStoriesHot.on('change', function (e) {
-            const categoryId = $(this).val()
-
-            $('.section-stories-hot__list').addClass('d-none')
-            wrapperSkeletonStoriesHot.removeClass('d-none')
-
-            handleChangeListHot(categoryId)
-        })
 
         const themeMode = $(".theme_mode")
         if (themeMode) {

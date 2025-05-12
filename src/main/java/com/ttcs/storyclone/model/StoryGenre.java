@@ -1,4 +1,4 @@
-package com.ttcs.storyclone.entity;
+package com.ttcs.storyclone.model;
 
 import jakarta.persistence.*;
 import lombok.Data;

@@ -1,6 +1,6 @@
 package com.ttcs.storyclone.service;
 
-import com.ttcs.storyclone.entity.Genre;
+import com.ttcs.storyclone.model.Genre;
 
 import java.util.List;
 

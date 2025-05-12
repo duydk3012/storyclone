@@ -20,7 +20,7 @@ CREATE TABLE stories (
                          author VARCHAR(100),
                          description TEXT,
                          cover_image TEXT,
-                         status ENUM('ongoing', 'completed', 'dropped') DEFAULT 'ongoing',
+                         status ENUM('ongoing', 'completeduser_rolesuser_roles', 'dropped') DEFAULT 'ongoing',
                          created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
                          updated_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP
 );

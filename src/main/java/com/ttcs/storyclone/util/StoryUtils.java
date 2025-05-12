@@ -1,6 +1,6 @@
 package com.ttcs.storyclone.util;
 
-import com.ttcs.storyclone.entity.StoryStatus;
+import com.ttcs.storyclone.model.StoryStatus;
 
 public class StoryUtils {
     public static String getStatusBadgeClass(StoryStatus status) {

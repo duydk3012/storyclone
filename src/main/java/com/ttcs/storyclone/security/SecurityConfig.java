@@ -12,7 +12,7 @@ import org.springframework.security.web.SecurityFilterChain;
 import javax.sql.DataSource;
 
 @Configuration
-public class SecurityConfig {
+public class SecurityConfig{
 
     @Bean
     public UserDetailsManager userDetailsManager(DataSource dataSource) {

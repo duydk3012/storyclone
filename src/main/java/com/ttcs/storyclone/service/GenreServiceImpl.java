@@ -1,7 +1,7 @@
 package com.ttcs.storyclone.service;
 
 import com.ttcs.storyclone.repository.GenreRepository;
-import com.ttcs.storyclone.entity.Genre;
+import com.ttcs.storyclone.model.Genre;
 import org.springframework.stereotype.Service;
 
 import java.util.List;

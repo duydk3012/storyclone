@@ -1,7 +1,7 @@
 package com.ttcs.storyclone.service;
 
-import com.ttcs.storyclone.entity.Story;
-import com.ttcs.storyclone.entity.StoryStatus;
+import com.ttcs.storyclone.model.Story;
+import com.ttcs.storyclone.model.StoryStatus;
 
 import java.util.List;
 
@@ -13,4 +13,6 @@ public interface StoryService {
     Story findById(Long id);
     Story save(Story story);
     void delete(Story story);
+    void deleteById(Long id);
+    long getTotalStories();
 }

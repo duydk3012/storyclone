@@ -1,7 +1,7 @@
 package com.ttcs.storyclone.controller;
 
-import com.ttcs.storyclone.entity.Genre;
-import com.ttcs.storyclone.entity.Story;
+import com.ttcs.storyclone.model.Genre;
+import com.ttcs.storyclone.model.Story;
 import com.ttcs.storyclone.service.GenreService;
 import com.ttcs.storyclone.service.StoryService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -37,4 +37,5 @@ public class HomeController {
         model.addAttribute("top10CompletedStories", top10CompletedStories);
         return "index";
     }
+
 }

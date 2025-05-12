@@ -1,7 +1,7 @@
 package com.ttcs.storyclone.service;
 
-import com.ttcs.storyclone.entity.Chapter;
-import com.ttcs.storyclone.entity.Story;
+import com.ttcs.storyclone.model.Chapter;
+import com.ttcs.storyclone.model.Story;
 import com.ttcs.storyclone.repository.ChapterRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -22,6 +22,11 @@ public class ChapterServiceImpl implements ChapterService {
     @Override
     public List<Chapter> findByStory(Story story) {
         return chapterRepository.findByStory(story);
+    }
+
+    @Override
+    public List<Chapter> findAll() {
+        return chapterRepository.findAll();
     }
 
     @Override
@@ -46,5 +51,26 @@ public class ChapterServiceImpl implements ChapterService {
             throw new RuntimeException("Chapter not found");
         }
         return chapter;
+    }
+    @Override
+    public List<Chapter> findByStoryId(Long storyId) {
+        return chapterRepository.findByStoryId(storyId);
+    }
+    @Override
+    public Chapter save(Chapter chapter) {
+        return chapterRepository.save(chapter);
+    }
+    @Override
+    public void delete(Chapter chapter) {
+        chapterRepository.delete(chapter);
+    }
+    @Override
+    public void deleteById(Long id) {
+        Chapter chapter = findById(id);
+        chapterRepository.delete(chapter);
+    }
+    @Override
+    public long getTotalChapters() {
+        return chapterRepository.count();
     }
 }

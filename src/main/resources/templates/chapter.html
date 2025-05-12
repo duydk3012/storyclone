@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html xmlns:th="http://www.thymeleaf.org" lang="vi">
+<html lang="vi" xmlns:th="http://www.thymeleaf.org">
 
 <head>
     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
@@ -18,16 +18,6 @@
 
     <link rel="shortcut icon" th:href="@{/images/icon.png}" type="image/x-icon">
     <link rel="stylesheet" th:href="@{/app.css}">
-
-
-
-    <script>
-        window.Clone = {
-            baseUrl: 'https://suustore.com',
-            urlCurrent: 'https://suustore.com',
-            csrfToken: '4EebYu2rWivdRk1ET12dyuY0CJjpRERhJynPtvUy'
-        }
-    </script>
 
     <title>Story Clone</title>
     <meta name="description"
@@ -245,7 +235,7 @@
                         </a>
 
                         <ul class="dropdown-menu select-chapter__list" aria-labelledby="dropdownMenuLink">
-
+                            <li th:each="c : ${chapters}" th:text="${c.title}"></li>
                         </ul>
                     </div>
                     <a th:if="${chapter.chapterNumber < story.latestChapterNumber}"
@@ -265,9 +255,6 @@
                 <p th:text="${chapter.content}"></p>
             </div>
 
-            <div class="text-center px-2 py-2 alert alert-success d-none d-lg-block" role="alert">Bạn có thể dùng phím
-                mũi tên hoặc WASD để
-                lùi/sang chương</div>
         </div>
 
         <div class="chapter-actions chapter-actions-mobile d-flex align-items-center justify-content-center">
@@ -278,7 +265,7 @@
                 data-slug-story="nang-khong-muon-lam-hoang-hau"><span>
 
                     <svg style="fill: #fff;" xmlns="http://www.w3.org/2000/svg" height="1em"
-                        viewBox="0 0 448 512"><!--! Font Awesome Free 6.4.2 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license (Commercial License) Copyright 2023 Fonticons, Inc. -->
+                        viewBox="0 0 448 512">
                         <path
                             d="M0 96C0 78.3 14.3 64 32 64H416c17.7 0 32 14.3 32 32s-14.3 32-32 32H32C14.3 128 0 113.7 0 96zM0 256c0-17.7 14.3-32 32-32H416c17.7 0 32 14.3 32 32s-14.3 32-32 32H32c-17.7 0-32-14.3-32-32zM448 416c0 17.7-14.3 32-32 32H32c-17.7 0-32-14.3-32-32s14.3-32 32-32H416c17.7 0 32 14.3 32 32z">
                         </path>
@@ -292,7 +279,7 @@
                 </a>
 
                 <ul class="dropdown-menu select-chapter__list" aria-labelledby="dropdownMenuLink">
-
+                    <li th:each="c : ${chapters}" th:text="${c.title}"></li>
                 </ul>
             </div>
             <a class="btn btn-success chapter-next" href="#"

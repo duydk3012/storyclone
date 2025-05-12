@@ -1,0 +1,87 @@
+/* Sidebar */
+.sidebar {
+    min-height: 100vh;
+    background-color: #f8f9fa;
+}
+
+/* Card animations */
+.card-stats {
+    transition: transform 0.2s;
+}
+.card-stats:hover {
+    transform: translateY(-5px);
+}
+
+/* Responsive sidebar */
+@media (max-width: 768px) {
+    .sidebar {
+        min-height: auto;
+    }
+}
+
+/* Table styles */
+.table {
+    table-layout: fixed !important; /* Enforce fixed column widths */
+    width: 100% !important;
+}
+
+/* General table cell styles */
+.table td, .table th {
+    white-space: nowrap !important; /* Prevent text wrapping */
+    overflow: hidden !important; /* Hide overflow content */
+    padding: 0.5rem !important; /* Consistent padding */
+}
+
+/* Truncate title column */
+.table .truncate {
+    text-overflow: ellipsis !important; /* Add ellipsis for overflow */
+}
+
+/* Specific column widths */
+.table .col-id {
+    width: 10% !important; /* ID column */
+}
+.table .col-title {
+    width: 40% !important; /* Title column */
+}
+.table .col-status {
+    width: 15% !important; /* Status column (for story-list) */
+}
+.table .col-chapter-number {
+    width: 15% !important; /* Chapter Number column (for chapter-list) */
+}
+.table .col-created-at {
+    width: 15% !important; /* Created At column */
+}
+.table .col-updated-at {
+    width: 15% !important; /* Updated At column (for chapter-list) */
+}
+.table .col-actions {
+    width: 20% !important; /* Actions column */
+}
+
+/* Responsive adjustments */
+@media (max-width: 992px) {
+    .table .col-title {
+        width: 30% !important; /* Reduce title width */
+    }
+    .table .col-actions {
+        width: 25% !important; /* Slightly larger for actions */
+    }
+}
+@media (max-width: 768px) {
+    .table .col-title {
+        width: 25% !important; /* Further reduce title width */
+    }
+    .table .col-id, .table .col-status, .table .col-chapter-number, .table .col-created-at, .table .col-updated-at {
+        width: 15% !important;
+    }
+}
+@media (max-width: 576px) {
+    .table .col-title {
+        width: 20% !important; /* Minimal title width */
+    }
+    .table .col-actions {
+        width: 30% !important; /* Ensure actions fit */
+    }
+}

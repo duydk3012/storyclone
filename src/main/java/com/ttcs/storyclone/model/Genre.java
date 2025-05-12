@@ -1,9 +1,10 @@
-package com.ttcs.storyclone.entity;
+package com.ttcs.storyclone.model;
 
 import jakarta.persistence.*;
 import lombok.Data;
 
-import java.time.LocalDateTime;
+import java.util.HashSet;
+import java.util.Set;
 
 @Entity
 @Table(name = "genres")
@@ -11,7 +12,7 @@ import java.time.LocalDateTime;
 public class Genre {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    @Column(name = "genre_id")
+    @Column(name = "id")
     private Long id;
 
     @Column(name = "name", unique = true, nullable = false)
@@ -19,4 +20,8 @@ public class Genre {
 
     @Column(name = "description")
     private String description;
+
+    @ManyToMany(mappedBy = "genres")
+    private Set<Story> stories = new HashSet<>();
+
 }

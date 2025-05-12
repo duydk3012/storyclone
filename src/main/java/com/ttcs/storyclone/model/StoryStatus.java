@@ -1,4 +1,4 @@
-package com.ttcs.storyclone.entity;
+package com.ttcs.storyclone.model;
 
 public enum StoryStatus {
     ongoing, completed, hiatus, cancelled

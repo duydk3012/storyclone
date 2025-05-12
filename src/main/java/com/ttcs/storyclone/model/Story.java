@@ -1,9 +1,11 @@
-package com.ttcs.storyclone.entity;
+package com.ttcs.storyclone.model;
 
 import jakarta.persistence.*;
 import lombok.Data;
 
 import java.time.LocalDateTime;
+import java.util.HashSet;
+import java.util.Set;
 
 @Entity
 @Table(name = "stories")
@@ -11,7 +13,7 @@ import java.time.LocalDateTime;
 public class Story {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    @Column(name = "story_id")
+    @Column(name = "id")
     private Long id;
 
     @Column(name = "title")
@@ -32,10 +34,28 @@ public class Story {
     @Enumerated(EnumType.STRING)
     private StoryStatus status = StoryStatus.ongoing;
 
-    @Column(name = "created_at")
+    @Column(name = "created_at", updatable = false)
     private LocalDateTime createdAt;
 
     @Column(name = "updated_at")
     private LocalDateTime updatedAt;
 
+    @ManyToMany
+    @JoinTable(
+            name = "story_genres",
+            joinColumns = @JoinColumn(name = "story_id"),
+            inverseJoinColumns = @JoinColumn(name = "genre_id")
+    )
+    private Set<Genre> genres = new HashSet<>();
+
+    @PrePersist
+    protected void onCreate() {
+        this.createdAt = LocalDateTime.now();
+        this.updatedAt = LocalDateTime.now();
+    }
+
+    @PreUpdate
+    protected void onUpdate() {
+        this.updatedAt = LocalDateTime.now();
+    }
 }

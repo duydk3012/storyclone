@@ -1,9 +1,9 @@
 package com.ttcs.storyclone.controller;
 
 
-import com.ttcs.storyclone.entity.Chapter;
-import com.ttcs.storyclone.entity.Genre;
-import com.ttcs.storyclone.entity.Story;
+import com.ttcs.storyclone.model.Chapter;
+import com.ttcs.storyclone.model.Genre;
+import com.ttcs.storyclone.model.Story;
 import com.ttcs.storyclone.service.ChapterService;
 import com.ttcs.storyclone.service.GenreService;
 import com.ttcs.storyclone.service.StoryService;
@@ -35,9 +35,11 @@ public class ChapterController {
         Chapter chapter = chapterService.findByChapterNumberAndStoryId(chapterNumber, storyId);
         List<Genre> genres = genreService.findAll();
         Story story = storyService.findById(storyId);
+        List<Chapter> chapters = chapterService.findByStory(story);
         model.addAttribute("story", story);
         model.addAttribute("genres", genres);
         model.addAttribute("chapter", chapter);
+        model.addAttribute("chapters", chapters);
         return "chapter";
     }
 }
